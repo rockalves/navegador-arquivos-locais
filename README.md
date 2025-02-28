@@ -1,0 +1,1 @@
+# navegador-arquivos-locais
