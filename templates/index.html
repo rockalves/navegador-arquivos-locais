@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Arquivos</title>
+</head>
+<body>
+    <h1>Listagem de Arquivos</h1>
+    {% if caminho_superior %}
+    <a href="/{{ caminho_superior }}">Voltar</a>
+    {% endif %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Tamanho</th>
+                <th>Data de Modificação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in itens %}
+            <tr>
+                <td>
+                    {% if item.diretorio %}
+                    <a href="/{{ item.caminho }}">{{ item.nome }}</a>
+                    {% else %}
+                    <a href="/download/{{ item.caminho }}">{{ item.nome }}</a>
+                    {% endif %}
+                </td>
+                <td>{{ item.tamanho }}</td>
+                <td>{{ item.data }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
